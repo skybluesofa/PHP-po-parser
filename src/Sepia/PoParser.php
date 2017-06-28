@@ -296,7 +296,7 @@ class PoParser
                             case 'msgctxt':
                             case 'msgid':
                             case 'msgid_plural':
-                            case (strpos($state, 'msgstr[') !== false):
+                            case (!is_null($state) && strpos($state, 'msgstr[') !== false):
                                 if (is_string($entry[$state])) {
                                     // Convert it to array
                                     $entry[$state] = array($entry[$state]);
